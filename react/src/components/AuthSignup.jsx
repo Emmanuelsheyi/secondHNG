@@ -15,8 +15,8 @@ export default function AuthSignup(){
     e.preventDefault();
     setError('')
     try{
-      await authSignup({email,password})
-      showToast({type:'success', message:'Account created'})
+  await authSignup({email,password})
+  showToast({type:'success', message:'Account created', className: 'auth-success'})
       navigate('/dashboard')
     }catch(err){
       const msg = err.message || 'Signup failed'

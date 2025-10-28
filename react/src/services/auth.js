@@ -8,6 +8,7 @@ function delay(ms=300){
 
 export async function authSignup({email,password}){
   await delay(300)
+  email = String(email || '').trim().toLowerCase()
   if(!email || !password) throw new Error('Email and password are required')
   const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]')
   if(users.find(u=>u.email===email)) throw new Error('User already exists')
@@ -22,6 +23,7 @@ export async function authSignup({email,password}){
 
 export async function authLogin({email,password}){
   await delay(300)
+  email = String(email || '').trim().toLowerCase()
   const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]')
   // add default demo user if none
   if(users.length===0){

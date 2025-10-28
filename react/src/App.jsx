@@ -12,10 +12,12 @@ function App(){
   const location = useLocation()
   const navigate = useNavigate()
   const [auth, setAuth] = React.useState(!!getSession())
+  const [mobileOpen, setMobileOpen] = React.useState(false)
 
   React.useEffect(()=>{
     // update auth flag when location changes (login/signup will navigate)
     setAuth(!!getSession())
+    setMobileOpen(false)
   },[location])
 
   function handleLogout(){
@@ -28,8 +30,11 @@ function App(){
     <div>
       <nav className="nav container">
         <div className="logo">TicketApp</div>
-        <div style={{display:'flex',gap:12,alignItems:'center'}}>
-          <Link to="/" className="btn btn-ghost">Home</Link>
+
+        <button className="nav-toggle btn-ghost" aria-expanded={mobileOpen} onClick={()=>setMobileOpen(v=>!v)} aria-label="Toggle menu">☰</button>
+
+        <div className="nav-actions" style={{display:'flex',gap:12,alignItems:'center'}}>
+          <Link to="/" className="btn btn-ghost home-btn">Home</Link>
           {auth && <Link to="/dashboard" className="btn btn-ghost">Dashboard</Link>}
 
           {!auth ? (
@@ -42,6 +47,21 @@ function App(){
           )}
         </div>
       </nav>
+
+      {mobileOpen && (
+        <div className="mobile-menu container">
+          <Link to="/" className="btn btn-ghost home-btn">Home</Link>
+          {auth && <Link to="/dashboard" className="btn btn-ghost">Dashboard</Link>}
+          {!auth ? (
+            <>
+              <Link to="/auth/login" className="btn btn-ghost">Login</Link>
+              <Link to="/auth/signup" className="btn btn-primary">Get Started</Link>
+            </>
+          ) : (
+            <button onClick={handleLogout} className="btn btn-primary">Logout</button>
+          )}
+        </div>
+      )}
 
       <main className="container">
         <Routes>

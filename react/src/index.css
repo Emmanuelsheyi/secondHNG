@@ -12,7 +12,7 @@ body {
     "Helvetica Neue", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(180deg, #ecedf0 0%, #0d373e 100%);
+  background: #f3f4f6; /* grey background */
   color: #0f172a;
 }
 .container {
@@ -96,6 +96,21 @@ body {
 }
 .btn-ghost:hover {
   background: rgba(15, 23, 42, 0.03);
+}
+
+/* Home button specific styling */
+.home-btn {
+  background: #2563eb;
+  color: #fff;
+  border: 0;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+}
+.home-btn:hover {
+  transform: translateY(-2px);
+}
+.home-btn:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 3px;
 }
 
 /* Decorative shapes */
@@ -235,6 +250,14 @@ body {
     gap: 12px;
     padding: 12px;
   }
+  .nav-toggle {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .nav-actions {
+    display: none;
+  }
   .nav .logo {
     font-size: 18px;
   }
@@ -285,6 +308,30 @@ body {
   .field select,
   .field textarea {
     width: 100%;
+  }
+}
+
+/* mobile menu container (shown when toggle enabled) */
+.mobile-menu.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px;
+}
+.mobile-menu .btn {
+  width: 100%;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .nav-actions {
+    display: flex !important;
   }
 }
 
@@ -390,7 +437,7 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, #eef2ff 0%, #f6f9fc 100%);
+  background: #36589b; /* grey background */
   color: #0f172a;
 }
 body {
@@ -399,7 +446,7 @@ body {
     "Helvetica Neue", Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  background: #b1c1df; /* grey background */
   color: #0f172a;
 }
 .container {
