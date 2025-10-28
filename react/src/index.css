@@ -34,6 +34,13 @@ body {
   color: #2563eb;
 }
 
+/* Nav actions default layout (desktop) */
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 /* Hero */
 .hero {
   position: relative;
@@ -254,6 +261,19 @@ body {
     display: inline-block;
     padding: 8px;
     border-radius: 8px;
+  }
+  /* Make the hamburger button blue on mobile */
+  .nav-toggle {
+    background: #2563eb;
+    color: #fff;
+    border: 0;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+    font-size: 18px;
+    line-height: 1;
+  }
+  .nav-toggle:focus {
+    outline: 2px solid rgba(37, 99, 235, 0.18);
+    outline-offset: 3px;
   }
   .nav-actions {
     display: none;

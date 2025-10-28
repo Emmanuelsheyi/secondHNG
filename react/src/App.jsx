@@ -33,7 +33,7 @@ function App(){
 
         <button className="nav-toggle btn-ghost" aria-expanded={mobileOpen} onClick={()=>setMobileOpen(v=>!v)} aria-label="Toggle menu">☰</button>
 
-        <div className="nav-actions" style={{display:'flex',gap:12,alignItems:'center'}}>
+  <div className="nav-actions">
           <Link to="/" className="btn btn-ghost home-btn">Home</Link>
           {auth && <Link to="/dashboard" className="btn btn-ghost">Dashboard</Link>}
 
